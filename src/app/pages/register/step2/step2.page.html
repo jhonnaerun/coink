@@ -1,0 +1,23 @@
+<app-header-with-steps [tittle]="tittle" [backRef]="backRef" [step]="step"/>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <app-informative-coink [image]="image" [tittle]="tittleInformative" [text]="information"/>
+  <div>
+    <form [formGroup]="dataForm">
+      <ion-list>
+
+        <ion-item>
+          <ion-select formControlName="documentType" label="Tipo de documento" label-placement="floating">
+            <ion-select-option *ngFor="let item of documents" [value]="item.id">{{item.description}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-input formControlName="document" label="Número de documento" label-placement="floating"></ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+  </div>
+
+  <ion-button (click)="test()">Aceptar</ion-button>
+</ion-content>

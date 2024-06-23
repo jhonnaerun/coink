@@ -1,0 +1,23 @@
+.stepper-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 14px;
+}
+
+.stepper-radio-group {
+  display: flex;
+  align-items: center;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+}
+
+.line {
+  width: 50px;
+  height: 2px;
+  background-color: gray;
+  margin: 0 10px;
+}

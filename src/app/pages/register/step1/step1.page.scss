@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.item {
+  padding: 10px;
+  color: white;
+  text-align: center;
+  margin: 10px;
+  color: var(--ion-color-secondary);
+  font-size: 30px;
+}
+
+.item-button {
+  padding-right: 5px;
+  color: white;
+  text-align: center;
+  margin: 10px;
+  color: var(--ion-color-secondary);
+  font-size: 30px;
+}
+
+ion-input {
+  box-shadow: 10ch;
+}

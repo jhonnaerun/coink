@@ -1,0 +1,22 @@
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.line {
+  width: 90vw; /* Ajusta el ancho según sea necesario */
+  height: 2px;
+  background-color: var(--ion-color-primary); /* Puedes cambiar el color según sea necesario */
+  margin: 0 10px; /* Ajusta el margen según sea necesario */
+}
+
+ion-label {
+  font-size: 14px;
+  color: gray;
+}
+
+h5{
+  font-size: 12px;
+}

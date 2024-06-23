@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <br>
+    <ion-buttons slot="start">
+        <ion-back-button color="primary" [defaultHref]="backRef" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{tittle | uppercase}}</ion-title>
+    <app-displey-steps [selectedStep] = "step"/>
+    <br>
+</ion-toolbar>
+</ion-header>

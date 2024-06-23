@@ -34,4 +34,15 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+//@import "@ionic/angular/css/palettes/dark.system.css";
+
+ion-button {
+  height: 45px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+h1,h2,h3,h4,h5 {
+  color: var(--ion-color-secondary);
+  font-weight: bold;
+}
