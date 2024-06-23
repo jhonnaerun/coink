@@ -1,0 +1,117 @@
+<app-header-with-steps [tittle]="tittle" [backRef]="backRef" [step]="step"/>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <app-informative-coink [image]="image" [tittle]="tittleInformative" [text]="information"/>
+  <div>
+    <form [formGroup]="dataForm">
+      <ion-list>
+        <h5>Documento de identidad</h5>
+        <ion-item>
+          <ion-select formControlName="documentType" label="Tipo de documento" label-placement="floating">
+            <ion-select-option *ngFor="let item of documents" [value]="item.id">{{item.description}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div class="margin-error" *ngIf="dataForm.get('documentType').touched && dataForm.get('documentType').errors">
+          <span class="error-span">Este campo es obligatorio.</span>
+        </div>
+
+        <ion-item>
+          <ion-input type="text" formControlName="document" label="Número de documento" label-placement="floating" maxlength="10" minlength="7"></ion-input>
+        </ion-item>
+        <div class="margin-error" *ngIf="dataForm.get('document').touched && dataForm.get('document').errors">
+          <span class="error-span">Este campo es obligatorio.</span>
+        </div>
+
+        <ion-item button="true" id="open-date-expedition">
+          <ion-input label="Fecha de expedición documento" label-placement="floating" value="{{expeditionDate | date:'mediumDate'}}"></ion-input>
+          <ion-modal [initialBreakpoint]="0.40" trigger="open-date-expedition" show-backdrop="false"
+                     size="cover" id="popover-bottom-data">
+            <ng-template>
+              <ion-row>
+                <ion-datetime id="expeditionDate" presentation="date" size="cover" [max]="nowDate" formControlName = "expeditionDate"
+                              (ionChange)="expeditionDate = onDateChange($event)" [showDefaultButtons]="true"
+                              [preferWheel]="true" doneText="ACEPTAR" cancelText="CANCELAR">
+                </ion-datetime>
+              </ion-row>
+            </ng-template>
+          </ion-modal>
+        </ion-item>
+        <div class="margin-error" *ngIf="dataForm.get('expeditionDate').touched && dataForm.get('expeditionDate').errors">
+          <span class="error-span">Este campo es obligatorio.</span>
+        </div>
+
+        <ion-item button="true" id="open-date-born">
+          <ion-input label="Fecha de nacimiento" label-placement="floating" value="{{bornDate | date:'mediumDate'}}"></ion-input>
+          <ion-modal [initialBreakpoint]="0.40" trigger="open-date-born" show-backdrop="false"
+                     size="cover" id="popover-bottom-data">
+            <ng-template>
+              <ion-row>
+                <ion-datetime id="expeditionDate" presentation="date" size="cover" [max]="acceptBornDate" formControlName = "bornDate"
+                              (ionChange)="bornDate = onDateChange($event)" [showDefaultButtons]="true"
+                              [preferWheel]="true" doneText="ACEPTAR" cancelText="CANCELAR">
+                </ion-datetime>
+              </ion-row>
+            </ng-template>
+          </ion-modal>
+        </ion-item>
+        <div class="margin-error" *ngIf="dataForm.get('bornDate').touched && dataForm.get('bornDate').errors">
+          <span class="error-span">Este campo es obligatorio.</span>
+        </div>
+
+        <ion-item>
+          <ion-select formControlName="gender" label="Genero" label-placement="floating">
+            <ion-select-option value="1">Masculino</ion-select-option>
+            <ion-select-option value="2">Femenino</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div class="margin-error" *ngIf="dataForm.get('gender').touched && dataForm.get('gender').errors">
+          <span class="error-span">Este campo es obligatorio.</span>
+        </div>
+
+        <h5>Configura tu cuenta</h5>
+
+        <ion-item>
+          <ion-input type="email" formControlName="email" label="Correo electrónico" label-placement="floating"></ion-input>
+        </ion-item>
+        <div class="margin-error" *ngIf="dataForm.get('email').errors && dataForm.get('email').touched">
+          <span class="error-span" *ngIf="dataForm.get('email').errors['required']">Este campo es obligatorio.</span>
+          <span class="error-span" *ngIf="dataForm.get('email').errors['email']">El correo electrónico no es valido.</span>
+        </div>
+
+        <ion-item>
+          <ion-input type="email" formControlName="emailConfirm" label="Confirmar Correo electrónico" label-placement="floating"></ion-input>
+        </ion-item>
+        <div class="margin-error" *ngIf="dataForm.get('emailConfirm').errors && dataForm.get('emailConfirm').touched">
+          <span class="error-span" *ngIf="dataForm.get('emailConfirm').errors['required']">Este campo es obligatorio.</span>
+          <span class="error-span" *ngIf="dataForm.get('emailConfirm').errors['email']">El correo electrónico no es valido.</span>
+        </div>
+        <div class="margin-error" *ngIf="dataForm.get('email').touched && dataForm.get('emailConfirm').touched && dataForm.errors && dataForm.errors['emailMismatch']">
+          <span class="error-span">Este campo no coincide con el correo.</span>
+        </div>
+
+        <ion-item>
+          <ion-input type="{{showPassword ? 'text' : 'password'}}" formControlName="password" label="PIN de seguridad" label-placement="floating" maxlength="6" minlength="6" inputmode="numeric"></ion-input>
+          <ion-icon name="{{showPassword ? 'eye-outline' : 'eye-off-outline'}}" slot="end" (click)="showPassword = !showPassword"></ion-icon>
+        </ion-item>
+        <div class="margin-error" *ngIf="dataForm.get('password').errors && dataForm.get('password').touched">
+          <span class="error-span" *ngIf="dataForm.get('password').errors['required']">Este campo es obligatorio.</span>
+          <span class="error-span" *ngIf="dataForm.get('password').errors['minlength']">El PIN debe tener 6 digitos.</span>
+        </div>
+
+        <ion-item>
+          <ion-input type="{{showPasswrodConfirm ? 'text' : 'password'}}" formControlName="passwordConfirm" label="Confirmar PIN de seguridad" label-placement="floating" maxlength="6" minlength="6" inputmode="numeric"></ion-input>
+          <ion-icon name="{{showPasswrodConfirm ? 'eye-outline' : 'eye-off-outline'}}" (click)="showPasswrodConfirm = !showPasswrodConfirm" slot="end"></ion-icon>
+        </ion-item>
+        <div class="margin-error" *ngIf="dataForm.get('passwordConfirm').errors && dataForm.get('passwordConfirm').touched">
+          <span class="error-span" *ngIf="dataForm.get('passwordConfirm').errors['minlength']">El PIN debe tener 6 digitos.</span>
+        </div>
+        <div class="margin-error" *ngIf="dataForm.get('password').touched && dataForm.get('passwordConfirm').touched && dataForm.errors && dataForm.errors['passwordMismatch']">
+          <span class="error-span">Este campo no coincide con el PIN.</span>
+        </div>
+
+      </ion-list>
+    </form>
+  </div>
+
+  <ion-button expand="block" shape="round" (click)="nextStep()" style="margin-bottom: 15px;" [disabled]="dataForm.invalid">Continuar</ion-button>
+</ion-content>

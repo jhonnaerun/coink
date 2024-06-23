@@ -46,3 +46,48 @@ h1,h2,h3,h4,h5 {
   color: var(--ion-color-secondary);
   font-weight: bold;
 }
+
+
+.error-span {
+  color: red;
+  font-size: 11px;
+}
+
+ion-modal {
+  --height: 50%;
+  --width: 90%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+}
+
+ion-modal ion-toolbar {
+  --background: rgb(14 116 144);
+  --color: white;
+}
+
+.custom-loading-spinner {
+  .loading-wrapper {
+    background: transparent !important; /* Fondo transparente */
+    box-shadow: none !important; /* Sin sombra */
+    color: white; /* Color del texto */
+  }
+
+  .spinner-dots {
+    width: 70px !important; /* Ajusta el ancho del spinner */
+    height: 70px !important; /* Ajusta la altura del spinner */
+  }
+
+  .loading-spinner {
+    width: 80px !important; /* Ajusta el ancho del spinner */
+    height: 80px !important; /* Ajusta la altura del spinner */
+  }
+
+  .loading-content {
+    background: transparent !important; /* Fondo transparente */
+  }
+}

@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DispleyStepsComponent } from './displey-steps/displey-steps.component';
 import { InformativeCoinkComponent } from './informative-coink/informative-coink.component';
+import { InformativeModalComponent } from './informative-modal/informative-modal.component';
 
 
 
@@ -12,6 +13,7 @@ import { InformativeCoinkComponent } from './informative-coink/informative-coink
   declarations: [
     HeaderWithStepsComponent,
     InformativeCoinkComponent,
+    InformativeModalComponent,
     DispleyStepsComponent],
   imports: [
     CommonModule,

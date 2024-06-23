@@ -67,7 +67,7 @@ export class Step1Page implements OnInit {
 
 
   public nextStep() {
-    this.navCtrl.navigateRoot('register/step2');
+    this.navCtrl.navigateForward('register/step2', {queryParams: {phone: this.phoneNumber.replace(/ /g, "")}});
   }
 
 }
