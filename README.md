@@ -11,6 +11,10 @@ Tuve un problema con la maquina y por este motivo no se pudo completar la genera
 
 con cordoba generaria el contenido agregado en la carpeta resources, y sincornizaria con capacitor (base de este proyecto)
 
+## levantar app
+
+1. ionic serve
+
 ## Configuraciones necesarias
 
 1. Verificar versión java 11 o superior y agregarlo a las variables de entorno (carpeta bin de la ubicación)
